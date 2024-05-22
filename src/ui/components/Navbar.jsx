@@ -3,10 +3,10 @@ import { Link, NavLink } from 'react-router-dom';
 
 export const Navbar = () => {
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-            
-            <Link 
-                className="navbar-brand" 
+        <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
+
+            <Link
+                className="navbar-brand"
                 to="/"
             >
                 Asociaciones
@@ -15,15 +15,16 @@ export const Navbar = () => {
             <div className="navbar-collapse">
                 <div className="navbar-nav">
 
-                    <NavLink 
-                        className="nav-item nav-link" 
+                    <NavLink
+                        className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
                         to="/marvel"
                     >
                         Marvel
                     </NavLink>
 
-                    <NavLink 
-                        className="nav-item nav-link" 
+                    <NavLink
+                        className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
+
                         to="/dc"
                     >
                         DC
@@ -31,14 +32,24 @@ export const Navbar = () => {
                 </div>
             </div>
 
-            <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
                 <ul className="navbar-nav ml-auto">
-                    <NavLink 
-                        className="nav-item nav-link" 
+                    <span className="nav-item nav-link text-primary">
+                        Fabian
+                    </span>
+
+                    <button
+                        className="nav-item nav-link btn"
+                    >
+                        Logout
+                    </button>
+                    {/* <NavLink
+                        className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
+
                         to="/login"
                     >
                         Logout
-                    </NavLink>
+                    </NavLink> */}
                 </ul>
             </div>
         </nav>
